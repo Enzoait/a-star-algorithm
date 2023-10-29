@@ -3,9 +3,9 @@ class EmptyOpen(Exception):
         self.message = message
         super().__init__(self.message)
 
-# Définir le graphe avec des coûts variables.
 def transition(node):
-    graph = {
+    # Définissez votre graphe ici / Define your graph here.
+    graph = { 
         0: {1: 3, 2: 1, 3: 1},
         1: {4: 1, 5: 1},
         2: {5: 3, 6: 2},
@@ -17,8 +17,8 @@ def transition(node):
     }
     return graph.get(node, {})
 
-# Définir la fonction heuristique.
 def h(node, goal):
+    # Définissez vos valeurs heuristiques ici / Define your heuristic values here.
     heuristic_values = {0: 4, 1: 2, 2: 2, 3: 2, 4: 1, 5: 3, 6: 4, 7: 0}
     return heuristic_values[node]
 
@@ -49,6 +49,6 @@ def rechercheGraph(start, goal):
         raise EmptyOpen()
 
 # Utilisation
-start_node = 0
-goal_node = 5
+start_node = 0 # Définissez votre noeud de départ ici / Define your start node here.
+goal_node = 7 # Définissez votre noeud d'arrivée ici / Define your goal node here.
 rechercheGraph(start_node, goal_node)
